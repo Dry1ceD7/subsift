@@ -39,6 +39,10 @@ def test_env_detection():
     assert classify("app.dev.playable.com").env == "dev"
     assert classify("api.staging.example.com").env == "staging"
     assert classify("www.example.com").env == "prod"
+    assert classify("api.perf.example.com").env == "test"
+    assert classify("app.e2e.example.com").env == "test"
+    assert classify("api.cert.example.com").env == "uat"
+    assert classify("app.train.example.com").env == "demo"
 
 
 def test_real_juicy_host_surfaces():

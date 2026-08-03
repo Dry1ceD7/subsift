@@ -42,15 +42,15 @@ DEEP_NEST = 6  # more labels than this is usually a wildcard/fuzz artifact
 ENV_TOKENS = {
     "prod": ["prod", "production", "prd", "live", "www"],
     "dev": ["dev", "develop", "development"],
-    "test": ["test", "tst", "testing"],
+    "test": ["test", "tst", "testing", "perf", "load", "e2e", "integration", "int-test"],
     "staging": ["staging", "stg", "stage", "stag"],
-    "uat": ["uat"],
+    "uat": ["uat", "cert", "certification"],
     "qa": ["qa"],
     "sandbox": ["sandbox", "sbx", "sand"],
     "preprod": ["preprod", "pre-prod", "ppt", "pet", "sit", "hml", "homolog", "nonprod"],
     "rc": ["rc", "canary", "beta", "alpha"],
     "internal": ["int", "internal", "intranet", "corp", "local"],
-    "demo": ["demo"],
+    "demo": ["demo", "edu", "train", "training"],
 }
 # for scoring: non-prod is more interesting to a researcher than prod
 NONPROD = {"dev", "test", "staging", "uat", "qa", "sandbox", "preprod", "rc", "internal", "demo"}
