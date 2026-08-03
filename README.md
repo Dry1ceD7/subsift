@@ -1,5 +1,9 @@
 # subsift
 
+[![CI](https://github.com/Dry1ceD7/subsift/actions/workflows/ci.yml/badge.svg)](https://github.com/Dry1ceD7/subsift/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Python](https://img.shields.io/badge/python-3.9%2B-blue.svg)](pyproject.toml)
+
 **Sift signal from subdomain-recon noise.** Pipe in `subfinder`/`amass`/`httpx` output and get back a de-noised, tagged, priority-scored view of what's actually worth looking at — non-prod, admin, auth, API, CI/CD, infra, payment — while the ephemeral CI previews, wildcard-DNS junk, and numbered white-label pages get dropped.
 
 Pure Python **stdlib, zero dependencies**. One file. Reads a file or stdin.
