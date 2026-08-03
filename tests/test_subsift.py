@@ -25,6 +25,10 @@ def test_subdomain_labels_strip_apex():
     assert subdomain_labels("a.b.example.com".split(".")) == ["a", "b"]
     assert subdomain_labels("gitlab.api.10bis.co.il".split(".")) == ["gitlab", "api"]
     assert subdomain_labels("nubank.com.br".split(".")) == []
+    assert subdomain_labels("api.foo.com.tw".split(".")) == ["api"]
+    assert subdomain_labels("api.foo.gov.br".split(".")) == ["api"]
+    assert subdomain_labels("api.foo.ne.jp".split(".")) == ["api"]
+    assert subdomain_labels("api.foo.com.pk".split(".")) == ["api"]
 
 
 def test_high_value_scoring():
