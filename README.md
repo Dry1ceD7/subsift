@@ -12,6 +12,8 @@ Pure Python **stdlib, zero dependencies**. One file. Reads a file or stdin.
 subfinder -d target.com -silent | subsift --interesting
 ```
 
+![subsift demo](assets/demo.gif)
+
 ---
 
 ## The problem
