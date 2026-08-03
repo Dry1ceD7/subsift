@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "subsift"
+version = "0.1.0"
+description = "Sift signal from subdomain-recon noise: de-noise, tag, and priority-score subdomains."
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+authors = [{name = "Dry1ceD7"}]
+keywords = ["bugbounty", "recon", "subdomain", "security", "pentest", "osint", "attack-surface"]
+classifiers = [
+  "Environment :: Console",
+  "Intended Audience :: Information Technology",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Topic :: Security",
+]
+
+[project.urls]
+Homepage = "https://github.com/Dry1ceD7/subsift"
+Issues = "https://github.com/Dry1ceD7/subsift/issues"
+
+[project.scripts]
+subsift = "subsift:main"
+
+[tool.setuptools]
+py-modules = ["subsift"]

@@ -1,0 +1,13 @@
+www.example.com
+admin.api-courier.example.com
+docker-registry.dev.example.com
+gitlab-ssh.dev.example.com
+api-payments-secure-prod.example.com
+2871-fix-404-uncover.ci0.dev.example.com
+a1b2c3d4e5f6.example.com
+10441.partner.example.com
+10442.partner.example.com
+10443.partner.example.com
+static.assets.example.com
+vpn.auth.example.com
+staging-webauthn.api.example.com
