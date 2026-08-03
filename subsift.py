@@ -204,6 +204,7 @@ def main(argv=None):
     ap.add_argument("file", nargs="?", help="input file (default: stdin)")
     ap.add_argument("--httpx", action="store_true", help="input is httpx JSON lines")
     ap.add_argument("--json", action="store_true", help="emit JSON lines with tags/score")
+    ap.add_argument("--out", help="write results to FILE instead of stdout")
     ap.add_argument("--interesting", action="store_true",
                     help="only hosts with score >= --min-score, sorted high→low")
     ap.add_argument("--min-score", type=int, default=2, help="threshold for --interesting (default 2)")
@@ -237,11 +238,16 @@ def main(argv=None):
         hosts = [h for h in hosts if h.score >= args.min_score]
         hosts.sort(key=lambda h: (-h.score, h.name))
 
-    for h in hosts:
-        if args.json:
-            print(json.dumps(asdict(h), separators=(",", ":")))
-        else:
-            print(h.to_row())
+    out_fp = open(args.out, "w") if args.out else sys.stdout
+    try:
+        for h in hosts:
+            if args.json:
+                print(json.dumps(asdict(h), separators=(",", ":")), file=out_fp)
+            else:
+                print(h.to_row(), file=out_fp)
+    finally:
+        if args.out:
+            out_fp.close()
 
     if args.stats:
         env_c, cat_c = Counter(), Counter()

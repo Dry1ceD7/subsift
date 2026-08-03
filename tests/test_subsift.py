@@ -48,6 +48,27 @@ def test_real_juicy_host_surfaces():
     assert h.score >= 5
 
 
+def test_out_flag():
+    import tempfile
+    import io
+    with tempfile.NamedTemporaryFile("w+", delete=False) as tf:
+        tf_name = tf.name
+    try:
+        from subsift import main
+        old_stdin = sys.stdin
+        sys.stdin = io.StringIO("api.dev.example.com\n")
+        try:
+            main(["--out", tf_name])
+        finally:
+            sys.stdin = old_stdin
+        with open(tf_name) as f:
+            content = f.read()
+        assert "api.dev.example.com" in content
+        assert "api" in content
+    finally:
+        os.remove(tf_name)
+
+
 if __name__ == "__main__":
     fns = [v for k, v in sorted(globals().items()) if k.startswith("test_")]
     for fn in fns:
